@@ -1,28 +1,12 @@
-/*#include <stdio.h>
-
- int  i __attribute__((aligned(8)));
- short c __attribute__((aligned(8))) = 7;
- int j __attribute__((aligned(8))) = 9;
- int k __attribute__((aligned(8))) = 0;
-
-
-
-int main()
+void *memcpy(void *dest, const void *src, size_t n)
 {
- *(((int*)&j) - 1) = 7;
- printf("%d,%d,%d,%d\n", i, c, j, k);
- printf("%p,%p,%p, %p", &i, &c, &j, &k);
- return 0;
-} */
+    register char* d1 = (char*)dest;
+    register char* s1 = (char*)src;
+    register size_t len = n;
 
-
-
-#include <stdio.h>
-int z;
-static int m = -1;
-
-int main()
-{
-    printf("%p, %p", &m, &z);
-    while(1){}
+    while(len--)
+    {
+        *d1++ = *s1++;
+    }
+    return dest;
 }
