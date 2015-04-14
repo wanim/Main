@@ -4,9 +4,8 @@
 *   @brief  functions to work with memory and c-strings
 *   @remark No 0-checks for all mem-function
 *   @remark 0-checks for all str-functions
-*   @remark memcpy, memmove and memset are optimized for a big blocks of memory
 
-*   Copyright 2015 by wanim,
+*   Copyright 2015 by wanim
 */
 #ifndef KSTRING_H_INCLUDED
 #define KSTRING_H_INCLUDED
