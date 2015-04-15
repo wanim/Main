@@ -1,3 +1,10 @@
+/**
+* @file Kstring.c
+* @brief functions to work with memory and c-strings
+* @remark No 0-checks for all mem-function
+* @remark 0-checks for all str-functions
+* Copyright 2015 by wanim
+*/
 
 #include "kstring.h"
 
