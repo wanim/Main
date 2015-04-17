@@ -1,9 +1,10 @@
 /**
-* @file Kstring.c
-* @brief functions to work with memory and c-strings
-* @remark No 0-checks for all mem-function
-* @remark 0-checks for all str-functions
-* Copyright 2015 by wanim
+* @file     Kstring.c
+* @brief    functions to work with memory and c-strings
+* @remark   No 0-checks for all mem-function
+* @remark   0-checks for all str-functions
+* 
+* Created 2015-04-14 by Kyrylo Nykytuk aka wanim
 */
 
 #include "kstring.h"
@@ -93,38 +94,38 @@ void *memmove_k(void *dest, const void *src, size_t n)
 #ifdef USE_32_BIT_REG
     register size_t len = n/4;
     size_t len_rest = n%4;
-    register char* d2 = (char*)(dest+n-1);
-    register char* s2 = (char*)(src+n-1);
+    register char* d2 = (char*)(dest + n - 1);
+    register char* s2 = (char*)(src + n - 1);
     while(len_rest--)
     {
         *d2-- = *s2--;
     }
-    register int* d1 = (int*)(d2-3);
-    register int* s1 = (int*)(s2-3);
+    register int* d1 = (int*)(d2 - 3);
+    register int* s1 = (int*)(s2 - 3);
     while(len--)
     {
         *d1-- = *s1--;
     }
 #else
 #ifdef USE_64_BIT_REG
-    register size_t len = n/8;
-    register size_t len_rest = n%8;
-    register char* d2 = ((char*)(dest))+n-1;
-    register char* s2 = ((char*)(src))+n-1;
+    register size_t len = n / 8;
+    register size_t len_rest = n % 8;
+    register char* d2 = ((char*)(dest))+ n - 1;
+    register char* s2 = ((char*)(src)) + n - 1;
     while(len_rest--)
     {
         *d2-- = *s2--;
     }
-    register double* d1 = (double*)(d2-7);
-    register double* s1 = (double*)(s2-7);
+    register double* d1 = (double*)(d2 - 7);
+    register double* s1 = (double*)(s2 - 7);
     while(len--)
     {
         *d1-- = *s1--;
     }
 #else
     register size_t len = n;
-    register char* d1 = (char*)(dest+len-1);
-    register char* s1 = (char*)(src+len-1);
+    register char* d1 = (char*)(dest + len - 1);
+    register char* s1 = (char*)(src + len - 1);
     while(len--)
     {
         *d1-- = *s1--;
@@ -138,11 +139,11 @@ void *memset_k(void *str, int c, size_t n)
 {
     #ifdef USE_32_BIT_REG
     register int* pt = (int*)str;
-    register size_t len = n/4;
-    size_t len_rest = n%4;
+    register size_t len = n / 4;
+    size_t len_rest = n % 4;
     register int val = (unsigned char)c;
-    val |= (val<<8);
-    val |= (val<<16);
+    val |= (val << 8);
+    val |= (val << 16);
     while(len--)
     {
         *pt++ = val;
@@ -155,13 +156,13 @@ void *memset_k(void *str, int c, size_t n)
     #else
     #ifdef USE_64_BIT_REG
     register double* pt = (double*)str;
-    register size_t len = n/8;
-    size_t len_rest = n%8;
+    register size_t len = n / 8;
+    size_t len_rest = n % 8;
     union {
         double d;
         int i[2];
     } u;
-    u.i[0]=u.i[1]= c | c<<8 | c<<16 | c<<24;
+    u.i[0]=u.i[1]= c | c << 8 | c << 16 | c << 24;
     register double val = u.d;
     while(len--)
     {
