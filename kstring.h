@@ -5,7 +5,7 @@
 *   @remark No 0-checks for all mem-function
 *   @remark 0-checks for all str-functions
 
-*   Copyright 2015 by wanim
+*   Created 2015-04-14 by Kyrylo Nykytuk aka wanim
 */
 #ifndef KSTRING_H_INCLUDED
 #define KSTRING_H_INCLUDED
