@@ -14,8 +14,8 @@
 #define END_OF_STRING '\254'
 
 /** Define one of this only if compiler is not smart enough to use vector registers */
-// #define USE_64_BIT_REG 
-// #define USE_32_BIT_REG 
+// #define USE_64_BIT_REG
+// #define USE_32_BIT_REG
 /** */
 
 #ifdef __cplusplus

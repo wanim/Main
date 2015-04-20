@@ -46,7 +46,7 @@ void scank(char* ptr)
 int main ()
 {
 
-    
+
     long long timediff[NumberOfTests];
     char  str1[10000] = "- This, a sample string.";
     char  str2[10000];
@@ -57,11 +57,11 @@ int main ()
     str2[998] = 'f';
     str2[999] = END_OF_STRING;
 
-	for (i = 0; i < NumberOfTests; i++) 
-	{ 
+	for (i = 0; i < NumberOfTests; i++)
+	{
 		time1 = ReadTSC(); // Time before test
 		/**------------------------------*/
-		memcpy_k(str2, str1, 10000);
+		memset_k(str2, 5, 10000);
 
 		/**------------------------------*/
 		timediff[i] = ReadTSC() - time1;
@@ -69,7 +69,7 @@ int main ()
 
 	printf("\nMy memcpy:"); // Print heading
 	for (i = 0; i < NumberOfTests; i++)
-	{ 
+	{
 		printf("\n%2i %10I64i", i, timediff[i]);
 	}
 
@@ -77,7 +77,7 @@ int main ()
 	{
 		time1 = ReadTSC(); // Time before test
 		/**------------------------------*/
-		memcpy(str2, str1, 10000);
+		memset(str2, 5, 10000);
 
 		/**------------------------------*/
 		timediff[i] = ReadTSC() - time1;
