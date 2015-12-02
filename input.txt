@@ -1,0 +1,14 @@
+a test sentence to test function
+
+
+(IDSC_HOME, UI_HomeCreate)
+(IDSC_MENU, UI_MenuCreate)
+(IDSC_UTILITIES, UI_UtilitiesCreate)
+(IDSC_BOLUS, UI_BolusCreate)
+
+/* sample comment here */
+
+(IDSC_HOME, "Home")
+(IDSC_MENU, "Menu")
+(IDSC_UTILITIES, "Utilities")
+(IDSC_BOLUS, "Bolus")
